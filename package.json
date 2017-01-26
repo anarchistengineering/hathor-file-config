@@ -1,0 +1,19 @@
+{
+  "name": "hathor-file-config",
+  "version": "0.0.1",
+  "description": "A JS configuration file loader for Hathor.",
+  "main": "index.js",
+  "dependencies": {
+    "hathor-logger": "0.0.1",
+    "hathor-utils": "0.0.1"
+  },
+  "devDependencies": {
+    "code": "^4.0.0",
+    "lab": "^12.0.0"
+  },
+  "scripts": {
+    "test": "lab"
+  },
+  "author": "Jeremy Darling <jeremy.darling@gmail.com>",
+  "license": "ISC"
+}
