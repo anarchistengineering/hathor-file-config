@@ -7,6 +7,7 @@ const {
   removeObjectValue,
   keyToPath
 } = require('hathor-utils');
+const Config = require('hathor-config');
 
 const loadConfigFrom = (configFile, {logger, base})=>{
   if(!configFile){
@@ -24,26 +25,15 @@ const loadConfigFrom = (configFile, {logger, base})=>{
   }
 };
 
-class Config{
+class FileConfig extends Config{
   constructor(configFile, options){
     const {
       logger = require('hathor-logger'),
       base = {}
     } = options || {};
-    this.CONFIG = loadConfigFrom(configFile, {logger, base});
-  }
-
-  get(key, defaultValue){
-    return getObjectValue(keyToPath(key), this.CONFIG, defaultValue);
-  }
-
-  set(key, value){
-    this.CONFIG = setObjectValue(keyToPath(key), this.CONFIG, value);
-  }
-
-  remove(key){
-    this.CONFIG = removeObjectValue(keyToPath(key), this.CONFIG);
+    const config = loadConfigFrom(configFile, {logger, base});
+    super(config, options);
   }
 };
 
-module.exports = Config;
+module.exports = FileConfig;
