@@ -1,12 +1,12 @@
 {
   "name": "hathor-file-config",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "A JS configuration file loader for Hathor.",
   "main": "index.js",
   "dependencies": {
     "hathor-config": "0.0.1",
     "hathor-logger": "0.0.1",
-    "hathor-utils": "0.0.1"
+    "hathor-utils": "0.0.2"
   },
   "devDependencies": {
     "code": "^4.0.0",
