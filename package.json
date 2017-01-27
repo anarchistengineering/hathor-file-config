@@ -4,7 +4,7 @@
   "description": "A JS configuration file loader for Hathor.",
   "main": "index.js",
   "dependencies": {
-    "hathor-config": "0.0.1",
+    "hathor-config": "0.0.2",
     "hathor-logger": "0.0.1",
     "hathor-utils": "0.0.2"
   },
