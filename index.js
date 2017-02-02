@@ -21,7 +21,7 @@ const loadConfigFrom = (configFile, {logger, base})=>{
   }catch(e){
     const src = fs.readFileSync(configFile).toString();
     const f = new Function(`base`, `let module = {}, exports; ${src}; return Object.assign({}, base, module.exports || exports);`);
-    return camelKeys(f());
+    return camelKeys(f(base));
   }
 };
 
