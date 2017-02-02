@@ -1,6 +1,6 @@
 {
   "name": "hathor-file-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A JS configuration file loader for Hathor.",
   "main": "index.js",
   "dependencies": {
