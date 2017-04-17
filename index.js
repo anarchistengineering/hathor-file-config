@@ -18,10 +18,18 @@ const loadConfigFrom = (configFile, {logger, base})=>{
   logger.info(`Loading configuration from:`, `${configFileLocation}`);
   try{
     return camelKeys(Object.assign({}, base, require(configFileLocation)));
-  }catch(e){
-    const src = fs.readFileSync(configFile).toString();
-    const f = new Function(`base`, `let module = {}, exports; ${src}; return Object.assign({}, base, module.exports || exports);`);
-    return camelKeys(f(base));
+  }catch(e1){
+    try{
+      const src = fs.readFileSync(configFile).toString();
+    }catch(e2){
+      return logger.error(configFile, e1);
+    }
+    try{
+      const f = new Function(`base`, `let module = {}, exports; ${src}; return Object.assign({}, base, module.exports || exports);`);
+      return camelKeys(f(base));
+    }catch(e){
+      return logger.error(configFile, e);
+    }
   }
 };
 
